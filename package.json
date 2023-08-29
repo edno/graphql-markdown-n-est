@@ -69,7 +69,12 @@
     "ts:check": "tsc --noEmit",
     "typedoc": "typedoc",
     "docs:api": "sh ./scripts/docs-api.sh",
-    "docs:api:all": "npm run docs --workspaces --if-present"
+    "docs:api:all": "npm run docs --workspaces --if-present",
+    "nest": "nest",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main"
   },
   "prettier": "./config/.prettierrc.js",
   "eslintConfig": {
@@ -158,6 +163,7 @@
     "@graphql-tools/json-file-loader": "8.0.0",
     "@microsoft/tsdoc": "0.14.2",
     "@microsoft/tsdoc-config": "0.16.2",
+    "@nestjs/cli": "10.1.16",
     "@stryker-mutator/core": "7.1.1",
     "@stryker-mutator/jest-runner": "7.1.1",
     "@stryker-mutator/typescript-checker": "7.1.1",
@@ -190,7 +196,11 @@
     "typedoc": "0.25.0",
     "typedoc-plugin-frontmatter": "0.0.2",
     "typedoc-plugin-markdown": "4.0.0-next.19",
-    "unionfs": "4.5.1"
+    "typescript": "5.2.2",
+    "unionfs": "4.5.1",
+    "source-map-support": "^0.5.21",
+    "ts-loader": "^9.4.3",
+    "tsconfig-paths": "^4.2.0"
   },
   "resolutions": {
     "chalk": "5.3.0"
@@ -205,6 +215,6 @@
     "@graphql-markdown/printer-legacy": "file:packages/printer-legacy",
     "@graphql-markdown/types": "file:packages/types",
     "@graphql-markdown/utils": "file:packages/utils",
-    "typescript": "5.2.2"
+    "@graphql-markdown/nest": "file:packages/nest"
   }
 }

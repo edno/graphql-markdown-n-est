@@ -34,5 +34,6 @@ module.exports = {
     projectConfig("logger"),
     projectConfig("printer-legacy"),
     projectConfig("utils"),
+    projectConfig("nest"),
   ],
 };

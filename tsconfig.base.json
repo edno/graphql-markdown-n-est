@@ -6,9 +6,10 @@
 
     "composite": true,
     "declaration": true,
+    "incremental": true,
+    
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "incremental": true,
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,

@@ -1,0 +1,20 @@
+schema: https://graphql.anilist.co/
+extensions:
+  graphql-markdown:
+    baseURL: "."
+    linkRoot: "/examples/tweet"
+    homepage: data/groups.md
+    loaders:
+      UrlLoader: 
+        module: "@graphql-tools/url-loader"
+        options:
+          method: "POST"
+    docOptions:
+      index: true
+    printTypeOptions:
+      parentTypePrefix: false
+      relatedTypeSection: false
+      typeBadges: true
+      deprecated: group
+    skipDocDirective:
+      - "@noDoc"

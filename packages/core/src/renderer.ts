@@ -203,6 +203,7 @@ export class Renderer {
     return {
       category: startCase(page.groups.category),
       slug: slug,
+      path: pagePath,
     } as Category;
   }
 

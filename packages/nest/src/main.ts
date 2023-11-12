@@ -1,7 +1,7 @@
 import { NestFactory } from "@nestjs/core";
 import { Logger } from "@nestjs/common";
 
-import type { GeneratorOptions } from "@graphql-markdown/types";
+import type { GeneratorOptions, Options } from "@graphql-markdown/types";
 import { DiffMethod } from "@graphql-markdown/core";
 
 import { AppModule } from "./app.module";
@@ -9,10 +9,14 @@ import { appConfiguration } from "./config/app.config";
 import { RendererService } from "./renderer/renderer.service";
 import { DiffService } from "./diff/diff.service";
 
-async function bootstrap(): Promise<void> {
+async function main(): Promise<void> {
+  await app();
+}
+
+export async function app(configOptions?: Options): Promise<void> {
   const app = await NestFactory.createApplicationContext(AppModule);
 
-  const config = app.get<GeneratorOptions>(appConfiguration.KEY);
+  const config: Options = configOptions ?? app.get<GeneratorOptions>(appConfiguration.KEY);
 
   const diffService = app.get(DiffService);
   const renderService = app.get(RendererService);
@@ -47,4 +51,4 @@ async function bootstrap(): Promise<void> {
   }
 }
 
-void bootstrap();
+void main();

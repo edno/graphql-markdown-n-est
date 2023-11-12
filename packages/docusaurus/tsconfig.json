@@ -13,7 +13,7 @@
 
   "references": [
     { "path": "../utils" },
-    { "path": "../core" },
+    { "path": "../nest" },
     { "path": "../logger" }
   ]
 }

@@ -20,5 +20,5 @@
     }
   },
 
-  "exclude": ["**/tests", "**/data", "config", "*.js", "**/assets", "**/dist"]
+  "exclude": ["**/test", "**/tests", "**/data", "config", "*.js", "**/assets", "**/dist"]
 }

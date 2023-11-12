@@ -1,8 +1,6 @@
 /* istanbul ignore file */
 import type { LoadContext, Plugin, PluginOptions } from "@docusaurus/types";
-import type { CliOptions, ConfigOptions } from "@graphql-markdown/types";
-import { generateDocFromSchema, buildConfig } from "@graphql-markdown/core";
-import { Logger } from "@graphql-markdown/logger";
+import { app } from "@graphql-markdown/nest";
 
 const NAME = "docusaurus-graphql-doc-generator" as const;
 const COMMAND = "graphql-to-doc" as const;
@@ -13,9 +11,6 @@ export default function pluginGraphQLDocGenerator(
   _: LoadContext,
   options: PluginOptions,
 ): Plugin {
-  const loggerModule = require.resolve("@docusaurus/logger");
-  Logger(loggerModule);
-
   const isDefaultId = options.id === DEFAULT_ID;
 
   const command = isDefaultId ? COMMAND : `${COMMAND}:${options.id}`;
@@ -57,16 +52,13 @@ export default function pluginGraphQLDocGenerator(
           "Option for printing deprecated entities: `default`, `group` or `skip`",
         )
         .option("--pretty", "Prettify generated files")
-        .action(async (cliOptions: CliOptions) => {
-          const config = await buildConfig(
-            options as ConfigOptions,
-            cliOptions,
-            options.id,
-          );
-          await generateDocFromSchema({
-            ...config,
-            loggerModule: loggerModule,
-          });
+        .action(async () => {
+          // const config = await buildConfig(
+          //   options as ConfigOptions,
+          //   cliOptions,
+          //   options.id,
+          // );
+          await app();
         });
     },
   };
